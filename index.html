@@ -392,6 +392,19 @@ So: 143.</pre>
 
   <hr class="divider">
 
+  <h2>JSON Schema Works Unchanged</h2>
+
+  <p>GCF round-trips losslessly to JSON. Validate on the decoded side using the same JSON Schema tooling you already have. OpenAI structured outputs, Anthropic tool definitions, LangChain, CrewAI: all work unchanged.</p>
+
+  <pre>data = decode_generic(gcf_response)
+jsonschema.validate(data, your_existing_schema)  # no changes needed</pre>
+
+  <p>TOON requires its own typed struct decoders. GCF reuses the entire JSON Schema ecosystem. The schema validates the data structure, not the wire encoding.</p>
+
+  <p><a href="https://gcformat.com/guide/schema-validation" style="color:#60a5fa">Full schema validation guide with code examples</a>.</p>
+
+  <hr class="divider">
+
   <h2>Reproduce Everything</h2>
 
   <p>The eval is open source. Every result is committed. Every log file is in the repository.</p>
