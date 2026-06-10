@@ -352,6 +352,17 @@ So: 143.</pre>
 
   <hr class="divider">
 
+  <h2>JSON Schema: GCF Reuses It, TOON Can't</h2>
+
+  <p>GCF decodes losslessly to JSON. Your existing JSON Schema validators, OpenAI structured outputs, Anthropic tool definitions: all work unchanged. TOON requires its own typed struct decoders and cannot reuse the JSON Schema ecosystem.</p>
+
+  <pre>data = decode_generic(gcf_response)         # GCF -> JSON-equivalent object
+jsonschema.validate(data, existing_schema)   # works. no changes.</pre>
+
+  <p>The entire validation toolchain is free. <a href="https://gcformat.com/guide/schema-validation" style="color:#60a5fa">Full guide</a>.</p>
+
+  <hr class="divider">
+
   <h2>TOON's Own Benchmark: GCF Wins All 6 Datasets</h2>
 
   <p>We forked TOON's benchmark repository, added a GCF formatter, and ran their datasets with their tokenizer and their methodology.</p>
@@ -389,19 +400,6 @@ So: 143.</pre>
   <div class="verdict">
     <p>JSON was designed for humans to read. TOON was designed as a compromise between humans and machines. GCF was designed for the machine. It's a proven lossless JSON encoding: <code>decode(encode(value)) == value</code> for every JSON value, verified across 200M+ random inputs and 7.9M fuzz executions. The consumer of your API responses is not a human. Optimize for the reader that matters.</p>
   </div>
-
-  <hr class="divider">
-
-  <h2>JSON Schema Works Unchanged</h2>
-
-  <p>GCF round-trips losslessly to JSON. Validate on the decoded side using the same JSON Schema tooling you already have. OpenAI structured outputs, Anthropic tool definitions, LangChain, CrewAI: all work unchanged.</p>
-
-  <pre>data = decode_generic(gcf_response)
-jsonschema.validate(data, your_existing_schema)  # no changes needed</pre>
-
-  <p>TOON requires its own typed struct decoders. GCF reuses the entire JSON Schema ecosystem. The schema validates the data structure, not the wire encoding.</p>
-
-  <p><a href="https://gcformat.com/guide/schema-validation" style="color:#60a5fa">Full schema validation guide with code examples</a>.</p>
 
   <hr class="divider">
 
