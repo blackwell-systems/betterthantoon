@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GCF is Better Than TOON — Full Benchmark</title>
-  <meta name="description" content="GCF wins all 6 datasets on TOON's own benchmark using their datasets and tokenizer. 90.7% comprehension accuracy where TOON averages 68.5%. TOON's decoder rejects LLM output on 7 of 9 models. 1,300+ evaluations.">
+  <meta name="description" content="GCF is a proven lossless JSON encoding that beats TOON on every dimension. Wins all 6 datasets on TOON's own benchmark. 90.7% comprehension where TOON averages 68.5%. 200M+ round-trips verified. Spec v2.0 Stable.">
   <meta name="keywords" content="better than toon, toon alternative, gcf vs toon, llm wire format, ai agents, gcf, token efficiency, mcp, model context protocol, benchmark, comprehension, generation, toon, wire format comparison">
   <meta property="og:title" content="GCF is Better Than TOON">
   <meta property="og:description" content="GCF wins all 6 datasets on TOON's own benchmark. 90.7% comprehension where TOON averages 68.5%. TOON's decoder rejects output on 7 of 9 models.">
@@ -64,7 +64,7 @@
   <h1>GCF is Better Than TOON</h1>
   <p class="subtitle">LLM Wire Format Benchmark: Which Format Can AI Actually Read and Write?</p>
 
-  <p>Every LLM wire format claims token savings. Nobody proves whether AI models can actually comprehend the format at scale, or produce valid output in it. We did both: 1,300+ LLM evaluations across 10 models from Anthropic, OpenAI, and Google. Deterministic ground truth, no LLM judge, reproducible from one command.</p>
+  <p>Every LLM wire format claims token savings. Nobody proves whether AI models can actually comprehend the format at scale, produce valid output in it, or round-trip data without loss. We proved all three: 1,300+ LLM evaluations across 10 models from Anthropic, OpenAI, and Google. 200M+ random round-trips with zero failures. Six implementations, cross-language conformance verified. <a href="https://github.com/blackwell-systems/gcf/blob/main/SPEC.md" style="color:#60a5fa">Spec v2.0 Stable</a>.</p>
 
   <p>The results are unambiguous. JSON breaks at 500 records. GPT-5.5 returns empty strings: it can't even attempt an answer at 53,000 tokens of repeated field names. Opus spends 143 lines manually enumerating symbols to count them and still gets the wrong answer. The format designed for "human readability" is incomprehensible to the systems actually reading it.</p>
 
@@ -82,8 +82,8 @@
       <div class="stat-label">fewer input tokens than JSON</div>
     </div>
     <div class="stat-block">
-      <div class="stat">22/23</div>
-      <div class="stat-label">comprehension runs won</div>
+      <div class="stat">200M+</div>
+      <div class="stat-label">lossless round-trips verified</div>
     </div>
     <div class="stat-block">
       <div class="stat">5/5</div>
@@ -387,7 +387,7 @@ So: 143.</pre>
   <p>This is where GCF's advantage compounds over a session. The per-call savings (32–79% vs JSON) multiply across 5–10 tool calls in a typical agent interaction.</p>
 
   <div class="verdict">
-    <p>JSON was designed for humans to read. TOON was designed as a compromise between humans and machines. GCF was designed for the machine. The consumer of your API responses is not a human. Optimize for the reader that matters.</p>
+    <p>JSON was designed for humans to read. TOON was designed as a compromise between humans and machines. GCF was designed for the machine. It's a proven lossless JSON encoding: <code>decode(encode(value)) == value</code> for every JSON value, verified across 200M+ random inputs and 7.9M fuzz executions. The consumer of your API responses is not a human. Optimize for the reader that matters.</p>
   </div>
 
   <hr class="divider">
@@ -444,7 +444,7 @@ cd toon && git checkout gcf-comparison && cd benchmarks && pnpm install && pnpm 
   </div>
 
   <footer>
-    &copy; 2026 <a href="https://blackwell.systems" style="color:#555;text-decoration:none;">Blackwell Systems</a>. GCF is open source. TOON has 10 million npm downloads. GCF has 1,300+ evaluations proving it wins on every dimension.
+    &copy; 2026 <a href="https://blackwell.systems" style="color:#555;text-decoration:none;">Blackwell Systems</a>. GCF v2.0 Stable. Six languages. Proven lossless. Open source.
   </footer>
 
 </body>
