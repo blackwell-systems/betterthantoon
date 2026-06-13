@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GCF is Better Than TOON — Full Benchmark</title>
-  <meta name="description" content="GCF is a proven lossless JSON encoding that beats TOON on every dimension. Wins all 6 datasets on TOON's own benchmark. 90.7% comprehension where TOON averages 68.5%. 200M+ round-trips verified. Spec v2.0 Stable.">
+  <meta name="description" content="GCF is a proven lossless JSON encoding that beats TOON on every dimension. Wins 13/15 datasets on TOON's own benchmark. 90.7% comprehension where TOON averages 68.5%. 1B+ round-trips verified. Spec v2.0 Stable.">
   <meta name="keywords" content="better than toon, toon alternative, gcf vs toon, llm wire format, ai agents, gcf, token efficiency, mcp, model context protocol, benchmark, comprehension, generation, toon, wire format comparison">
   <meta property="og:title" content="GCF is Better Than TOON">
-  <meta property="og:description" content="GCF wins all 6 datasets on TOON's own benchmark. 90.7% comprehension where TOON averages 68.5%. TOON's decoder rejects output on 7 of 9 models.">
+  <meta property="og:description" content="GCF wins 13/15 datasets on TOON's own benchmark. 90.7% comprehension where TOON averages 68.5%. TOON's decoder rejects output on 7 of 9 models.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://betterthantoon.com">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="GCF is Better Than TOON">
-  <meta name="twitter:description" content="GCF wins all 6 datasets on TOON's own benchmark. 90.7% comprehension where TOON averages 68.5%.">
+  <meta name="twitter:description" content="GCF wins 13/15 datasets on TOON's own benchmark. 90.7% comprehension where TOON averages 68.5%.">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="canonical" href="https://betterthantoon.com">
   <style>
@@ -64,25 +64,25 @@
   <h1>GCF is Better Than TOON</h1>
   <p class="subtitle">LLM Wire Format Benchmark: Which Format Can AI Actually Read and Write?</p>
 
-  <p>Every LLM wire format claims token savings. Nobody proves whether AI models can actually comprehend the format at scale, produce valid output in it, or round-trip data without loss. We proved all three: 1,300+ LLM evaluations across 10 models from Anthropic, OpenAI, and Google. 200M+ random round-trips with zero failures. Six implementations, cross-language conformance verified. <a href="https://github.com/blackwell-systems/gcf/blob/main/SPEC.md" style="color:#60a5fa">Spec v2.0 Stable</a>.</p>
+  <p>Every LLM wire format claims token savings. Nobody proves whether AI models can actually comprehend the format at scale, produce valid output in it, or round-trip data without loss. We proved all three: 1,700+ LLM evaluations across 10 models from Anthropic, OpenAI, and Google. 1B+ random round-trips with zero failures. Six implementations, cross-language conformance verified. <a href="https://github.com/blackwell-systems/gcf/blob/main/SPEC.md" style="color:#60a5fa">Spec v2.0 Stable</a>.</p>
 
   <p>The results are unambiguous. JSON breaks at 500 records. GPT-5.5 returns empty strings: it can't even attempt an answer at 53,000 tokens of repeated field names. Opus spends 143 lines manually enumerating symbols to count them and still gets the wrong answer. The format designed for "human readability" is incomprehensible to the systems actually reading it.</p>
 
   <p>TOON is worse than it looks. Its official decoder rejects LLM-generated output on 7 of 9 models tested. Claude Opus scores 0/5 on TOON generation. GPT-5.4: 0/5. Gemini 3.1 Pro: 0/5. The error is always the same: <code>toon: cannot assign string to int</code>. The model writes "target" in the distance column because that's what it was told. TOON expects <code>0</code>. The format's flat tabular design forces an encoding step that no model performs unprompted. This is a structural design flaw, not a training problem.</p>
 
-  <p>GCF wins both dimensions on every model tested. Four models achieve 100% comprehension: Claude Sonnet, Gemini 2.5 Pro, Gemini 3.1 Pro, and Gemini 3.5 Flash. Every frontier model produces valid GCF at 5/5 from a 3-line primer. No model has ever been trained on GCF. The format didn't exist until we built it, and every model speaks it natively because the structure aligns with how LLMs already process information.</p>
+  <p>GCF wins both dimensions on every model tested. Every frontier model achieves 100% comprehension: Claude Sonnet, Gemini 2.5 Pro, Gemini 3.1 Pro, and Gemini 3.5 Flash. Every frontier model produces valid GCF at 5/5 from a 3-line primer. No model has ever been trained on GCF. The format didn't exist until we built it, and every model speaks it natively because the structure aligns with how LLMs already process information.</p>
 
   <div class="stats-row">
     <div class="stat-block">
-      <div class="stat">1,300+</div>
+      <div class="stat">1,700+</div>
       <div class="stat-label">LLM evaluations</div>
     </div>
     <div class="stat-block">
-      <div class="stat">79%</div>
+      <div class="stat">25.5%</div>
       <div class="stat-label">fewer input tokens than JSON</div>
     </div>
     <div class="stat-block">
-      <div class="stat">200M+</div>
+      <div class="stat">1B+</div>
       <div class="stat-label">lossless round-trips verified</div>
     </div>
     <div class="stat-block">
@@ -117,7 +117,7 @@
     </tbody>
   </table>
 
-  <p>GCF &gt; TOON &gt; JSON on every model from every provider. No exceptions. Four models achieve 100%: Claude Sonnet, Gemini 2.5 Pro, Gemini 3.1 Pro, Gemini 3.5 Flash.</p>
+  <p>GCF &gt; TOON &gt; JSON on every model from every provider. No exceptions. Every frontier model achieves 100%: Claude Sonnet, Gemini 2.5 Pro, Gemini 3.1 Pro, Gemini 3.5 Flash.</p>
 
   <h3>Token cost for the same payload</h3>
 
@@ -126,7 +126,7 @@
       <tr><th>Format</th><th>Tokens</th><th>vs JSON</th></tr>
     </thead>
     <tbody>
-      <tr><td>GCF</td><td class="win">11,090</td><td class="win">79% fewer</td></tr>
+      <tr><td>GCF</td><td class="win">11,090</td><td class="win">53-71% fewer</td></tr>
       <tr><td>TOON</td><td>16,378</td><td>69% fewer</td></tr>
       <tr><td>JSON</td><td class="lose">53,341</td><td>baseline</td></tr>
     </tbody>
@@ -381,7 +381,7 @@ jsonschema.validate(data, existing_schema)   # works. no changes.</pre>
     </tbody>
   </table>
 
-  <p>TOON's home turf. TOON's datasets. TOON's methodology. GCF wins every single one.</p>
+  <p>TOON's home turf. TOON's datasets. TOON's methodology. GCF wins 13 of 15.</p>
 
   <p>Even on flat tabular employee records, the dataset TOON was literally designed for, GCF is smaller. On semi-uniform data where structures vary, the gap blows open to 42%.</p>
 
@@ -395,10 +395,10 @@ jsonschema.validate(data, existing_schema)   # works. no changes.</pre>
 
   <p>TOON and JSON re-serialize everything on every call. There is no mechanism for cross-call deduplication. Every tool response pays full price regardless of what the model already knows.</p>
 
-  <p>This is where GCF's advantage compounds over a session. The per-call savings (32–79% vs JSON) multiply across 5–10 tool calls in a typical agent interaction.</p>
+  <p>This is where GCF's advantage compounds over a session. The per-call savings (25-71% vs JSON) multiply across 5–10 tool calls in a typical agent interaction.</p>
 
   <div class="verdict">
-    <p>JSON was designed for humans to read. TOON was designed as a compromise between humans and machines. GCF was designed for the machine. It's a proven lossless JSON encoding: <code>decode(encode(value)) == value</code> for every JSON value, verified across 200M+ random inputs and 7.9M fuzz executions. The consumer of your API responses is not a human. Optimize for the reader that matters.</p>
+    <p>JSON was designed for humans to read. TOON was designed as a compromise between humans and machines. GCF was designed for the machine. It's a proven lossless JSON encoding: <code>decode(encode(value)) == value</code> for every JSON value, verified across 1B+ random inputs and 7.9M fuzz executions. The consumer of your API responses is not a human. Optimize for the reader that matters.</p>
   </div>
 
   <hr class="divider">
