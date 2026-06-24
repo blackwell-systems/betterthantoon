@@ -6,7 +6,7 @@
 
 TOON claims ~40% token savings over JSON on tabular data. What they don't measure: whether LLMs can actually read it at scale, or produce valid output in it.
 
-- **Comprehension**: TOON averages 68.5% at 500 records. GCF averages 90.7%.
+- **Comprehension**: TOON averages 68.2% at 500 records. GCF averages 91.2%.
 - **Generation**: TOON's own decoder rejects LLM-generated output on 7 of 9 models. The error is always the same: `toon: cannot assign string to int`. The model writes "target" where TOON expects the integer `0`.
 - **Token efficiency**: GCF wins all 6 datasets on TOON's own benchmark.
 
