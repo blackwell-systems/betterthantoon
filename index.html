@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GCF is Better Than TOON — Full Benchmark</title>
-  <meta name="description" content="GCF is a proven lossless JSON encoding that beats TOON on every dimension. Wins 15/16 datasets on TOON's own benchmark. 91.2% comprehension where TOON averages 68.8%. 43B+ round-trips verified. Spec v3.2 Stable.">
+  <meta name="description" content="GCF is a proven lossless JSON encoding that beats TOON on every dimension. Wins 15/16 datasets on TOON's own benchmark. 91.2% comprehension where TOON averages 68.8%. 43B+ round-trips verified. Spec v3.4.1 Stable.">
   <meta name="keywords" content="better than toon, toon alternative, gcf vs toon, llm wire format, ai agents, gcf, token efficiency, mcp, model context protocol, benchmark, comprehension, generation, toon, wire format comparison">
   <meta property="og:title" content="GCF is Better Than TOON">
   <meta property="og:description" content="GCF wins 15/16 datasets on TOON's own benchmark. 91.2% comprehension where TOON averages 68.8%. TOON's decoder rejects output on 7 of 9 models.">
@@ -64,7 +64,7 @@
   <h1>GCF is Better Than TOON</h1>
   <p class="subtitle">LLM Wire Format Benchmark: Which Format Can AI Actually Read and Write?</p>
 
-  <p>Every LLM wire format claims token savings. Nobody proves whether AI models can actually comprehend the format at scale, produce valid output in it, or round-trip data without loss. We proved all three: 2,400+ LLM evaluations across 10 models from Anthropic, OpenAI, and Google. 43B+ random round-trips across 5 formats (JSON, YAML, TOML, CSV, MessagePack) with zero failures. Six implementations, cross-language conformance verified. <a href="https://github.com/blackwell-systems/gcf/blob/main/SPEC.md" style="color:#60a5fa">Spec v3.2 Stable</a>.</p>
+  <p>Every LLM wire format claims token savings. Nobody proves whether AI models can actually comprehend the format at scale, produce valid output in it, or round-trip data without loss. We proved all three: 2,500+ LLM evaluations across 11 models across Anthropic, OpenAI, Google, and Mistral. 43B+ random round-trips across 5 formats (JSON, YAML, TOML, CSV, MessagePack) with zero failures. Six implementations, cross-language conformance verified. <a href="https://github.com/blackwell-systems/gcf/blob/main/SPEC.md" style="color:#60a5fa">Spec v3.4.1 Stable</a>.</p>
 
   <p>The results are unambiguous. JSON breaks at 500 records. GPT-5.5 returns empty strings: it can't even attempt an answer at 53,000 tokens of repeated field names. Opus spends 143 lines manually enumerating symbols to count them and still gets the wrong answer. The format designed for "human readability" is incomprehensible to the systems actually reading it.</p>
 
@@ -74,7 +74,7 @@
 
   <div class="stats-row">
     <div class="stat-block">
-      <div class="stat">2,400+</div>
+      <div class="stat">2,500+</div>
       <div class="stat-label">LLM evaluations</div>
     </div>
     <div class="stat-block">
@@ -97,21 +97,21 @@
 
   <p>A 500-symbol, 200-edge code graph. Encoded in GCF, TOON, and JSON. 13 structured extraction questions. The model gets the payload and a question. No format instructions. No system prompt. No hints.</p>
 
-  <h3>23 runs. 22 wins. 0 losses.</h3>
+  <h3>25 runs. 24 wins. 1 tie. 0 losses.</h3>
 
   <table>
     <thead>
       <tr><th>Model</th><th>Runs</th><th>GCF avg</th><th>TOON avg</th><th>JSON avg</th><th>GCF margin</th></tr>
     </thead>
     <tbody>
-      <tr><td>Claude Opus 4.6</td><td>2</td><td class="win">96.2%</td><td>84.6%</td><td class="lose">73.1%</td><td class="win">+11.6 vs TOON</td></tr>
+      <tr><td>Claude Opus 4.6</td><td>2</td><td class="win">96.2%</td><td>88.5%</td><td class="lose">73.1%</td><td class="win">+7.7 vs TOON</td></tr>
       <tr><td>Claude Sonnet 4.6</td><td>2</td><td class="win">100%</td><td>73.1%</td><td class="lose">53.8%</td><td class="win">+26.9 vs TOON</td></tr>
       <tr><td>Claude Haiku 4.5</td><td>2</td><td class="win">96.2%</td><td>69.2%</td><td class="lose">57.7%</td><td class="win">+27.0 vs TOON</td></tr>
       <tr><td>GPT-5.5</td><td>5</td><td class="win">84.1%</td><td>67.7%</td><td class="lose">45.8%</td><td class="win">+16.4 vs TOON</td></tr>
       <tr><td>GPT-5.4</td><td>4</td><td class="win">78.0%</td><td>56.0%</td><td class="lose">44.1%</td><td class="win">+22.0 vs TOON</td></tr>
-      <tr><td>GPT-5.4-mini</td><td>2</td><td class="win">71.8%</td><td>64.1%</td><td class="lose">54.2%</td><td class="win">+7.7 vs TOON</td></tr>
-      <tr><td>Gemini 2.5 Flash</td><td>3</td><td class="win">80.6%</td><td>54.6%</td><td class="lose">57.0%</td><td class="win">+26.0 vs TOON</td></tr>
-      <tr><td>Gemini 2.5 Pro</td><td>1</td><td class="win">100%</td><td>76.9%</td><td class="lose">58.3%</td><td class="win">+23.1 vs TOON</td></tr>
+      <tr><td>GPT-5.4-mini</td><td>2</td><td class="win">71.8%</td><td>64.1%</td><td class="lose">54.1%</td><td class="win">+7.7 vs TOON</td></tr>
+      <tr><td>Gemini 2.5 Flash</td><td>4</td><td class="win">85.5%</td><td>52.5%</td><td class="lose">54.3%</td><td class="win">+33.0 vs TOON</td></tr>
+      <tr><td>Gemini 2.5 Pro</td><td>2</td><td class="win">100%</td><td>78.5%</td><td class="lose">65.5%</td><td class="win">+21.5 vs TOON</td></tr>
       <tr><td>Gemini 3.1 Pro</td><td>1</td><td class="win">100%</td><td>76.9%</td><td class="lose">46.2%</td><td class="win">+23.1 vs TOON</td></tr>
       <tr><td>Gemini 3.5 Flash</td><td>1</td><td class="win">100%</td><td>61.5%</td><td class="lose">46.2%</td><td class="win">+38.5 vs TOON</td></tr>
     </tbody>
@@ -455,7 +455,7 @@ cd toon && git checkout gcf-comparison && cd benchmarks && pnpm install && pnpm 
   </div>
 
   <footer>
-    &copy; 2026 <a href="https://blackwell.systems" style="color:#555;text-decoration:none;">Blackwell Systems</a>. GCF v3.2 Stable. Six languages. Proven lossless. Open source.
+    &copy; 2026 <a href="https://blackwell.systems" style="color:#555;text-decoration:none;">Blackwell Systems</a>. GCF v3.4.1 Stable. Six languages. Proven lossless. Open source.
   </footer>
 
 </body>
